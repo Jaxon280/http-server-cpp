@@ -1,0 +1,9 @@
+<div id="messages", data-room_id="<%= @room.id %>">
+  <%= render @messages %>
+</div>
+<div class="input">
+  <form>
+    <label>post</label>
+    <input type="text" data-behavior="room_speaker">
+  </form>
+</div>

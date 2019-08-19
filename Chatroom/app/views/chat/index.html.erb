@@ -1,0 +1,27 @@
+<header>
+  <div class = "back-button">
+    <%= link_to("戻る","/user/#{@current_user.id}/room/#{@channels.room_id}/channel/#{@channels.id}") %>
+      <img src=''>
+    </a>
+  </div>
+  <div class = "header-title">
+    <%= @channels.name %>
+  </div>
+  <div class = "channel-setting">
+    <%= link_to("設定","/user/#{@current_user.id}/room/#{@channels.room_id}/channel/#{@channels.id}/edit") %>
+  </div>
+</header>
+<body>
+  <div class = "background">
+    <div id = "messages">
+      <%= render @messages %>
+    </div>
+    <div class = "message-sending">
+      <form class = "message-input">
+        <input type = "text" js-class = "chat_speaker">
+      </form>
+      <div class = "sending-button">
+      </div>
+    </div>
+  </div>
+</body>

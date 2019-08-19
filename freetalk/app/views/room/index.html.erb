@@ -1,0 +1,35 @@
+<header>
+  <div class = "header-title">
+    <h2>ルーム</h2>
+  </div>
+  <div class = "profile-link">
+    <a href='/profile'>
+      <img src=''>
+    </a>
+  </div>
+</header>
+<body>
+  <div class = "background">
+    <div id = "room-list" class = "container">
+      <% @rooms.each do |room| %>
+        <div class = "room">
+          <%= link_to "#{User.find(room[:friend_id]).name}とのルームへ", "/user/#{@current_user.id}/room/#{room.id}" %>
+          <span class="friend">
+            <%= User.find(room[:friend_id]).name %>
+          </span>
+          <span class="friend_image">
+            <img src = "/user_images/<%= User.find(room[:friend_id]).image %>">
+          </span>
+        </div>
+      <% end %>
+    </div>
+    <div class = 'add-button'>
+      <%= link_to("ルームを追加","/user/#{current_user.id}/new") %>
+      <div class = "white-circle">
+        <div class = "plus">
+          <img src="plus.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

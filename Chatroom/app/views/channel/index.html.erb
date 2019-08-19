@@ -1,0 +1,51 @@
+<header>
+  <div class = "back-button">
+    <%= link_to("戻る","/user/#{@current_user.id}") %>
+  </div>
+  <div class = "header-title">
+    <h2>チャンネル</h2>
+  </div>
+</header>
+<body>
+  <div class = "background">
+    <div class = "channel-list">
+      <p class = "whose-channel">シェアスペース</p>
+      <% @channels_share.each do |channel| %>
+        <div class = "channel">
+          <%= link_to(channel.name,"/user/#{@current_user.id}/room/#{@rooms.id}/channel/#{channel.id}")  %>
+          <p><%= channel.name %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class = "channel-list">
+      <p class = "whose-channel"><%= "#{User.find(@user_id1).name}" %></p>
+      <% @channels_user1.each do |channel| %>
+        <div class = "channel">
+          <%= link_to("/user/#{@current_user.id}/room/#{@rooms.id}/channel/#{channel.id}")  %>
+            <span class = "channel-name">
+              <%= channel.name %>
+            </span>
+        </div>
+      <% end %>
+    </div>
+    <div class = "channel-list">
+      <p class = "whose-channel"><%= "#{User.find(@user_id2).name}" %></p>
+      <% @channels_user2.each do |channel| %>
+        <div class = "channel">
+          <%= link_to("/user/#{@current_user.id}/room/#{@rooms.id}/channel/#{channel.id}")  %>
+            <span class = "channel-name">
+              <%= channel.name %>
+            </span>
+        </div>
+      <% end %>
+    </div>
+    <div class = 'add-button'>
+      <div class = "white-circle">
+        <%= link_to("チャンネルを追加","/user/#{@current_user.id}/room/#{@rooms.id}/channeladd") %>
+        <div class = "plus">
+          <img class = "plus_image">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

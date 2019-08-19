@@ -1,0 +1,32 @@
+<header>
+  <div class = "back-button">
+    <a href='/'>
+      <img src=''>
+    </a>
+  </div>
+  <div class = "header-title">
+    <h2>チャンネル追加</h2>
+  </div>
+</header>
+<body>
+  <div class = "background">
+    <div>
+      <h1>チャンネルを新しく作る</h1>
+    </div>
+    <%= form_with model: @channel do |form| %>
+    <div class = "input-container">
+      <div>
+        <h2>誰のチャンネル？</h2>
+        <%= form.select :belongs_id, {"シェアスペース"=>"0",User.find(@user_id1).name => "1",User.find(@user_id2).name => "2"} %>
+      </div>
+      <div class = "input input-channel">
+        <h2>チャンネル名</h2>
+        <%= form.text_field :name %>
+      </div>
+    </div>
+    <div class = "button">
+      <%= form.submit "チャンネルを作成する" %>
+    </div>
+    <% end %>
+  </div>
+</body>

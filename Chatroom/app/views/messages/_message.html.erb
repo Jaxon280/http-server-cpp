@@ -1,0 +1,10 @@
+<div class="messages">
+  <span class="message">
+    <%= @users[message.user_id]['name'] %>
+  </span>
+  <span>
+    <img src = "/user_images/<%= @users[message.user_id]['image'] %>">
+  <span>
+    <%= message.content %>
+  </span>
+</div>

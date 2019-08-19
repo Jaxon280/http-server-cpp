@@ -1,0 +1,33 @@
+<header>
+  <div class = "back-button">
+    <a href='/'>
+      <img src=''>
+    </a>
+  </div>
+  <div class = "header-title">
+    <h2>プロフィール</h2>
+  </div>
+</header>
+<body>
+  <div class = "background">
+    <div>
+      <h1>プロフィール設定</h1>
+      <h2>あなたのプロフィールを設定して！</h2>
+    </div>
+    <%= form_with model: @user do |form| %>
+    <div class = "profile-setting">
+      <div class = "image-setting">
+        <h2>プロフィール画像（画像をタップして設定）</h2>
+        <%= form.file_field :image, id:input_image_profile %>
+      </div>
+      <div class = "input input-channel">
+        <h2>名前</h2>
+        <%= form.text_field :name, id:input_name_profile %>
+      </div>
+    </div>
+    <div class = "button">
+      <%= form.submit "プロフィール設定を保存する" %>
+    </div>
+    <% end %>
+  </div>
+</body>

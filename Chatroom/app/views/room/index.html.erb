@@ -1,0 +1,47 @@
+<header>
+  <div class = "header-title">
+    <h2>ルーム</h2>
+  </div>
+  <div class = "profile-link">
+    <a href='/profile'>
+      <img src=''>
+    </a>
+  </div>
+</header>
+<body>
+  <div class = "background">
+    <div id = "room-list" class = "container">
+      <% @rooms1.each do |room| %>
+        <% @user_id2 = room.user_id2 %>
+        <div class = "room">
+          <%= link_to "#{User.find(@user_id2).name}とのルームへ", "/user/#{@current_user.id}/room/#{room.id}" %>
+          <span class="friend">
+            <%= User.find(room[:user_id2]).name %>
+          </span>
+          <span class="friend_image">
+            <img src = "/user_images/<%= User.find(room[:user_id2]).image %>">
+          </span>
+        </div>
+      <% end %>
+      <% @rooms2.each do |room| %>
+        <div class = "room">
+          <%= link_to "#{User.find(room[:user_id1]).name}とのチャンネルへ", "/user/#{@current_user.id}/room/#{room.id}" %>
+          <span class="friend">
+            <%= User.find(room[:user_id1]).name %>
+          </span>
+          <span class="friend_image">
+            <img src = "/user_images/<%= User.find(room[:user_id1]).image %>">
+          </span>
+        </div>
+      <% end %>
+    </div>
+    <div class = 'add-button'>
+      <%= link_to("ルームを追加","/user/#{@current_user.id}/roomadd") %>
+      <div class = "white-circle">
+        <div class = "plus">
+          <img src="plus.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

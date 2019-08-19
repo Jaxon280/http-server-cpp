@@ -1,0 +1,29 @@
+<header>
+  <div class = "back-button">
+    <a href='/'>
+      <img src=''>
+    </a>
+  </div>
+  <div class = "header-title">
+    <h2>ルーム追加</h2>
+  </div>
+</header>
+<body>
+  <div class = "background">
+    <div class = "account">
+      <h1>相手のIDを入力するだけ！</h1>
+      <h2>まだ作り込めてないです。。。</h2>
+    </div>
+    <%= form_with model:@user do |form| %>
+      <div class = "input-container">
+        <div class = "input input_id">
+          <h2>相手のID</h2>
+            <%= form.text_field :user_id %>
+        </div>
+      </div>
+      <div class = "button">
+        <%= form.submit "ルームを作成する" %>
+      </div>
+    <% end %>
+  </div>
+</body>

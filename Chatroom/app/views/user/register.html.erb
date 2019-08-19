@@ -1,0 +1,27 @@
+<header>
+  <div class = "header-title">
+    <h2>ユーザー登録</h2>
+  </div>
+</header>
+<body>
+  <div class = "background">
+    <div>
+      <h1>名前と画像を入力するだけ！</h1>
+    </div>
+    <%= form_with model: @user do |form| %>
+    <div class = "input-container">
+      <div>
+        <h2>名前</h2>
+        <%= form.text_field :name %>
+      </div>
+      <div class = "input input-channel">
+        <h2>画像</h2>
+        <%= form.file_field :image %>
+      </div>
+    </div>
+    <div class = "button">
+      <%= form.submit "ユーザー登録する" %>
+    </div>
+    <% end %>
+  </div>
+</body>
