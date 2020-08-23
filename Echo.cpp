@@ -5,7 +5,6 @@
 
 int main()
 {
-    std::cout << "Start program" << std::endl;
     int host_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (host_fd < 0)
     {
