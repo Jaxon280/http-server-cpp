@@ -13,9 +13,16 @@ int main()
     }
     std::cout << "Socket is created." << std::endl;
 
+    std::cout << "Which port do you use?" << '\n'
+              << ">" << std::endl;
+
+    std::string port;
+    std::getline(std::cin, port);
+    int port_i = std::stoi(port);
+
     sockaddr_in host_sa;
     host_sa.sin_family = AF_INET;
-    host_sa.sin_port = htons(2850); // hard coding
+    host_sa.sin_port = htons(port_i); // hard coding
     host_sa.sin_addr.s_addr = INADDR_ANY;
 
     if (bind(host_fd, (struct sockaddr *)&host_sa, sizeof(host_sa)) < 0)

@@ -16,9 +16,13 @@ int main()
         return -1;
     }
 
+    std::string port;
+    std::getline(std::cin, port);
+    int port_i = std::stoi(port);
+
     sockaddr_in server_sa;
     server_sa.sin_family = AF_INET;
-    server_sa.sin_port = htons(2850); // hard coding
+    server_sa.sin_port = htons(port_i); // hard coding
     server_sa.sin_addr.s_addr = INADDR_ANY;
     if (connect(client_fd, (struct sockaddr *)&server_sa, sizeof(server_sa)) < 0)
     {
@@ -30,7 +34,7 @@ int main()
 
     while (true)
     {
-        std::cout << "type message > " << std::endl;
+        std::cout << "type message > " << std::flush;
         std::getline(std::cin, data);
 
         std::string const quit_command = "quit";
