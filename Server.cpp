@@ -61,11 +61,6 @@ int main()
         else
         {
             std::cout << "Client sent messages:" << std::string(msg_buf, 0, bytes) << std::endl;
-            if (send(remote_fd, &msg_buf, bytes, 0) < 0)
-            {
-                std::cerr << "[ERROR] Message cannnot be send" << std::endl;
-                break;
-            }
         }
     }
 }
