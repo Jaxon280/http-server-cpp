@@ -1,6 +1,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 #include <iostream>
 
 int main()
@@ -14,8 +15,7 @@ int main()
     std::cout << "Socket is created." << std::endl;
 
     std::cout << "Which port do you use?" << '\n'
-              << ">" << std::endl;
-
+              << ">" << std::flush;
     std::string port;
     std::getline(std::cin, port);
     int port_i = std::stoi(port);
@@ -70,4 +70,11 @@ int main()
             std::cout << "Client sent messages:" << std::string(msg_buf, 0, bytes) << std::endl;
         }
     }
+    if (close(host_fd) < 0)
+    {
+        std::cerr << "[ERROR] Failed to close socket.";
+        return -1;
+    }
+    std::cout << "Close the socket..." << std::endl;
+    return 0;
 }

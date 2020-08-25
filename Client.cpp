@@ -16,6 +16,8 @@ int main()
         return -1;
     }
 
+    std::cout << "Which port do you use?" << '\n'
+              << ">" << std::flush;
     std::string port;
     std::getline(std::cin, port);
     int port_i = std::stoi(port);
