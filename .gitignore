@@ -1,0 +1,4 @@
+*.dSYM/
+.vscode/
+example.cpp
+*.o
