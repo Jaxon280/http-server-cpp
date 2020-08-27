@@ -16,11 +16,24 @@ int main()
         return -1;
     }
 
-    std::cout << "Which port do you use?" << '\n'
-              << ">" << std::flush;
     std::string port;
-    std::getline(std::cin, port);
-    int port_i = std::stoi(port);
+    int port_i;
+    while (true)
+    {
+        std::cout << "Which port do you use?" << '\n'
+                  << ">" << std::flush;
+        std::getline(std::cin, port);
+        try
+        {
+            port_i = std::stoi(port);
+        }
+        catch (const std::invalid_argument &e)
+        {
+            std::cout << "Invalid port number. Please type integer format." << std::endl;
+            continue;
+        }
+        break;
+    }
 
     sockaddr_in server_sa;
     server_sa.sin_family = AF_INET;
